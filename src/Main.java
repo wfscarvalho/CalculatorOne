@@ -16,7 +16,7 @@ public class Main {
         try {
             do {
                 System.out.println("which operation you would like to perform? \n");
-                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String");
+                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String, 6 - TriangleArea");
 
                 operationNum = sc.nextInt();
 
@@ -114,7 +114,47 @@ public class Main {
                     if (exit == 0) {
                         break;
                     }
-                } else {
+                } else if (operationNum==6){
+                    System.out.println("Please digit the 3 sides of the triangle: ");
+                    double triangleA = sc.nextDouble();
+                    double triangleB = sc.nextDouble();
+                    double triangleC = sc.nextDouble();
+
+                    TriangleCalculus areaTriangle = new TriangleCalculus();
+
+                    double resultArea1 = areaTriangle.triangleCalculation(triangleA,triangleB,triangleC);
+
+                    System.out.println("The result area of the triangle is: "+resultArea1);
+                    TimeUnit.SECONDS.sleep(2);
+
+                    System.out.println("Want to compare the area with other triangle? 0 - exit, 1 - yes");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+                    System.out.println("Please tell me the other triangles sides: ");
+                    triangleA = sc.nextDouble();
+                    triangleB = sc.nextDouble();
+                    triangleC = sc.nextDouble();
+
+                    double resultArea2 = areaTriangle.triangleCalculation(triangleA,triangleB,triangleC);
+                    System.out.println("The result area of the triangle is: "+resultArea2);
+                    TimeUnit.SECONDS.sleep(2);
+
+                    if (resultArea1<resultArea2){
+                        System.out.println("The bigger triangle is: The second");
+                    } else {
+                        System.out.println("The bigger triangle is: The second");
+                    }
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+
+                }else {
                     System.out.println("Invalid number, please try again.");
                     TimeUnit.SECONDS.sleep(3);
 
