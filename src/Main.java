@@ -14,10 +14,9 @@ public class Main {
 
         System.out.println("Hello " + userName+",");
         try {
-
             do {
                 System.out.println("which operation you would like to perform? \n");
-                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division");
+                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String");
 
                 operationNum = sc.nextInt();
 
@@ -39,7 +38,7 @@ public class Main {
                     System.out.println("0 - Exit, 1 - New");
                     int exit = sc.nextInt();
                     if (exit == 0) {
-                        break;
+
                     }
 
                 } else if (operationNum == 2) {
@@ -95,7 +94,26 @@ public class Main {
                     if (exit == 0) {
                         break;
                     }
+                } else if (operationNum == 5){
+                        System.out.println("Please digit the string that you would like to reverse: ");
+                        sc.nextLine();
+                        String toReverse = sc.nextLine();
 
+                        ReverseString funcoes = new ReverseString();
+
+                        String reversedString=funcoes.RevertString(toReverse);;
+
+
+                        System.out.println("A palavra revertida é: "+reversedString);
+
+
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
                 } else {
                     System.out.println("Invalid number, please try again.");
                     TimeUnit.SECONDS.sleep(3);
