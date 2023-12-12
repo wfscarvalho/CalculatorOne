@@ -16,7 +16,7 @@ public class Main {
         try {
             do {
                 System.out.println("which operation you would like to perform? \n");
-                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String, 6 - TriangleArea");
+                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String, 6 - TriangleArea, 7 - Rectangle area");
 
                 operationNum = sc.nextInt();
 
@@ -38,7 +38,7 @@ public class Main {
                     System.out.println("0 - Exit, 1 - New");
                     int exit = sc.nextInt();
                     if (exit == 0) {
-
+                        break;
                     }
 
                 } else if (operationNum == 2) {
@@ -101,7 +101,7 @@ public class Main {
 
                         ReverseString funcoes = new ReverseString();
 
-                        String reversedString=funcoes.RevertString(toReverse);;
+                        String reversedString=funcoes.RevertString(toReverse);
 
 
                         System.out.println("A palavra revertida é: "+reversedString);
@@ -154,15 +154,37 @@ public class Main {
                         break;
                     }
 
-                }else {
-                    System.out.println("Invalid number, please try again.");
-                    TimeUnit.SECONDS.sleep(3);
+                }else if (operationNum==7) {
+                    System.out.println("Please enter the width and then the height of the triangle: ");
+                    double width=sc.nextDouble();
+                    double height=sc.nextDouble();
 
+                    Rectangle rectangle= new Rectangle();
+
+                    rectangle.width=width;
+                    rectangle.height=height;
+
+                    double areaResult = rectangle.area();
+                    double perimeterResult = rectangle.perimeter();
+                    double diagonalResult = rectangle.diagonal();
+
+                    System.out.printf("AREA = %f \nPERIMETER = %f  \nDIAGONAL = %f ", areaResult,perimeterResult,diagonalResult);
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+                } else {
+                        System.out.println("Invalid number, please try again.");
+                        TimeUnit.SECONDS.sleep(3);
                 }
+
             } while (operationNum != 0);
         }
         catch (Exception e){
-            System.out.println("took exception");
+            System.out.println("erro do try-catch");
         }
     }
 }
