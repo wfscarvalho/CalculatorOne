@@ -16,7 +16,7 @@ public class Main {
         try {
             do {
                 System.out.println("which operation you would like to perform? \n");
-                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String, 6 - TriangleArea, 7 - Rectangle area");
+                System.out.println("0 - Exit, 1 - Sum, 2 - Subtraction, 3 - Multiplication, 4 - Division, 5 - Reverse String, 6 - TriangleArea, 7 - Rectangle area, 8 - Employee, 9- FinalGrade, 10 - Currency Converter");
 
                 operationNum = sc.nextInt();
 
@@ -168,7 +168,7 @@ public class Main {
                     double perimeterResult = rectangle.perimeter();
                     double diagonalResult = rectangle.diagonal();
 
-                    System.out.printf("AREA = %f \nPERIMETER = %f  \nDIAGONAL = %f ", areaResult,perimeterResult,diagonalResult);
+                    System.out.printf("AREA = %.2f \nPERIMETER = %.2f  \nDIAGONAL = %.2f ", areaResult,perimeterResult,diagonalResult);
                     TimeUnit.SECONDS.sleep(2);
                     System.out.println("\n\n\n\nWant to perform a new operation?");
                     System.out.println("0 - Exit, 1 - New");
@@ -176,7 +176,86 @@ public class Main {
                     if (exit == 0) {
                         break;
                     }
-                } else {
+                }else if(operationNum==8){
+                    System.out.println("Please share the employee details.");
+                    TimeUnit.SECONDS.sleep(1);
+                    sc.nextLine();
+                    System.out.println("Employee Name:");
+                    String employeeName=sc.nextLine();
+                    System.out.println("Employee Gross Salary: ");
+                    double employeeGrossSalary=sc.nextDouble();
+                    System.out.println("Employee Tax: ");
+                    double employeeTax=sc.nextDouble();
+
+                    Employee employee=new Employee();
+
+                    employee.name=employeeName;
+                    employee.grossSalary=employeeGrossSalary;
+                    employee.tax=employeeTax;
+                    employee.NetSalary();
+                    System.out.println("Employee: "+employee);
+                    TimeUnit.SECONDS.sleep(2);
+
+                    System.out.println("Which percentage increase the salary?");
+
+                    double percentage = sc.nextDouble();
+
+                    employee.IncreaseSalary(percentage);
+                    employee.NetSalary();
+
+                    System.out.println("Updated data: "+employee);
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+                } else if (operationNum==9){
+                    sc.nextLine();
+                    System.out.println("Please enter the Student Name");
+                    String name=sc.nextLine();
+                    System.out.println("Please enter the 3 notes of the Student:");
+                    double grade1=sc.nextDouble();
+                    double grade2=sc.nextDouble();
+                    double grade3=sc.nextDouble();
+
+                    Student student=new Student();
+
+                    student.name=name;
+                    student.grade1=grade1;
+                    student.grade2=grade2;
+                    student.grade3=grade3;
+
+                    double finalGrade= student.FinalGrade();
+                    String finalResult=student.EndYearResult();
+
+                    System.out.printf("FINAL GRADE= %.2f\n%s",finalGrade,finalResult);
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+                } else if(operationNum==10){
+                    System.out.println("What is the dollar Price?");
+                    double dollarPrice=sc.nextDouble();
+                    System.out.println("How many dollar will be bought?");
+                    double dollarBought=sc.nextDouble();
+
+                    double amount=CurrencyConverter.Ammount(dollarPrice,dollarBought);
+
+                    System.out.printf("Amount to be paid in REAIS: %.2f\n\n",amount);
+                    TimeUnit.SECONDS.sleep(2);
+                    System.out.println("\n\n\n\nWant to perform a new operation?");
+                    System.out.println("0 - Exit, 1 - New");
+                    int exit = sc.nextInt();
+                    if (exit == 0) {
+                        break;
+                    }
+                }
+                else {
                         System.out.println("Invalid number, please try again.");
                         TimeUnit.SECONDS.sleep(3);
                 }
